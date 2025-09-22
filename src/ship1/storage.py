@@ -57,7 +57,14 @@ def add_entry(text: str) -> None:
     # - Create new_entry dict with "t" (timestamp) and "v" (text) keys
     # - Insert at beginning of entries list (newest first)
     # - Save the updated entries
-    raise NotImplementedError
+    
+    newTimeStamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    new_entry = {"t": newTimeStamp, "v": text}
+    entries = load_entries()
+    entries.insert(0, new_entry)
+    save_entries(entries)
+
+    # raise NotImplementedError
 
 def clear_entries() -> None:
     """Erase all entries (write an empty list)."""
