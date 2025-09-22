@@ -42,9 +42,14 @@ def main(argv=None):
         # TODO: Update list command to show numbered entries with timestamps
         # - Use enumerate(entries, 1) to get 1-based numbering
         # - Format: "{i}. {e['t']} — {e['v']}"
-        for e in entries:
-            print(f"{e['t']} — {e['v']}")
+
+
+        for i, e in enumerate(entries, 1):
+            
+            print(f"{i}. {e['t']} — {e['v']}")
+        
         return 0
+    
 
     if ns.cmd == "clear":
         if not ns.yes:
